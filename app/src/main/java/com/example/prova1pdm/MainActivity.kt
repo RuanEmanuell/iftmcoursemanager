@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
     var codigoCurso : Int? = null;
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         val editButton = findViewById<FloatingActionButton>(R.id.editButton)
         val deleteButton = findViewById<FloatingActionButton>(R.id.deleteButton)
         val statsButton = findViewById<FloatingActionButton>(R.id.statsButton)
+        val saveFileButton = findViewById<FloatingActionButton>(R.id.saveFileButton)
 
         addButton.setOnClickListener{
             val intent = Intent(this, AddScreenActivity::class.java)
@@ -45,6 +47,22 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, StatsScreenActivity::class.java)
             startActivity(intent)
         }
+
+        saveFileButton.setOnClickListener {
+            val banco = Banco(this)
+            val cursoDAO = CursoDAO(banco)
+
+            val fileName = "database.txt"
+
+            val fileOutputStream = openFileOutput(fileName, MODE_PRIVATE)
+
+            val allDataText = cursoDAO.getAllDataString()
+            fileOutputStream.write(allDataText.toByteArray())
+            fileOutputStream.close()
+
+            Toast.makeText(this, "Dados salvos em arquivo de texto com sucesso.", Toast.LENGTH_SHORT).show()
+        }
+
 
     }
 

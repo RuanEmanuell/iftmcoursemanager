@@ -102,6 +102,26 @@ class CursoDAO (banco: Banco) {
         return listStringCursos
     }
 
+    fun getAllDataString() : String {
+        var allData = "CURSOS: \n"
+
+        val listStringCursos = getAllCursosString()
+
+        for(stringCurso in listStringCursos) {
+            allData += stringCurso
+            allData += "\n____________\n"
+        }
+
+        allData += "\n Curso com mais estudantes: \n"
+        allData += getCourseWithMoreStudents()
+        allData += "\n____________\n"
+        allData += "\nNumero de alunos no curso: "
+        allData += getTotalStudentsInUniversity()
+        allData += "\n____________\n"
+
+        return allData
+    }
+
     fun getCourseWithMoreStudents() : String? {
             val sql = "SELECT * FROM cursos WHERE numero_de_alunos = (SELECT MAX(numero_de_alunos) from cursos)"
             val db = this.banco.readableDatabase
