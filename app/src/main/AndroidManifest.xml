@@ -24,6 +24,7 @@
         <activity android:name=".AddScreenActivity" />
         <activity android:name=".AllCoursesActivity" />
         <activity android:name=".StatsScreenActivity" />
+        <activity android:name=".FileDataScreenActivity" />
     </application>
 
 </manifest>

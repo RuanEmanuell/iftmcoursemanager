@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton9"
+        android:id="@+id/readFileButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -27,8 +27,8 @@
         android:layout_marginTop="8dp"
         android:text="Ler dados de arquivo"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButton9"
-        app:layout_constraintTop_toTopOf="@+id/floatingActionButton9" />
+        app:layout_constraintStart_toEndOf="@+id/readFileButton"
+        app:layout_constraintTop_toTopOf="@+id/readFileButton" />
 
     <TextView
         android:id="@+id/textView"

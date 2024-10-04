@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val deleteButton = findViewById<FloatingActionButton>(R.id.deleteButton)
         val statsButton = findViewById<FloatingActionButton>(R.id.statsButton)
         val saveFileButton = findViewById<FloatingActionButton>(R.id.saveFileButton)
+        val readFileButton = findViewById<FloatingActionButton>(R.id.readFileButton)
 
         addButton.setOnClickListener{
             val intent = Intent(this, AddScreenActivity::class.java)
@@ -62,6 +63,13 @@ class MainActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Dados salvos em arquivo de texto com sucesso.", Toast.LENGTH_SHORT).show()
         }
+
+        readFileButton.setOnClickListener{
+            val intent = Intent(this, FileDataScreenActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
 
     }
