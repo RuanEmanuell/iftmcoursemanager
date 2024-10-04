@@ -102,6 +102,47 @@ class CursoDAO (banco: Banco) {
         return listStringCursos
     }
 
+    fun getCourseWithMoreStudents() : String? {
+            val sql = "SELECT * FROM cursos WHERE numero_de_alunos = (SELECT MAX(numero_de_alunos) from cursos)"
+            val db = this.banco.readableDatabase
+            val cursor = db.rawQuery(sql, null)
+
+            cursor.use {
+                if (it.moveToFirst()) {
+                    val codigoIndex = it.getColumnIndex("codigo")
+                    val nomeIndex = it.getColumnIndex("nome")
+                    val numeroDeAlunosIndex = it.getColumnIndex("numero_de_alunos")
+                    val notaMecIndex = it.getColumnIndex("nota_mec")
+                    val areaIndex = it.getColumnIndex("area")
+
+                    val codigo = it.getInt(codigoIndex)
+                    val nome = it.getString(nomeIndex)
+                    val numeroDeAlunos = it.getInt(numeroDeAlunosIndex)
+                    val notaMec = it.getFloat(notaMecIndex)
+                    val area = it.getString(areaIndex)
+
+                    return Curso(codigo, nome, numeroDeAlunos, notaMec, area).toString()
+                }
+            }
+        return null
+    }
+
+    fun getTotalStudentsInUniversity() : String? {
+        val sql = "SELECT SUM(numero_de_alunos) AS totalAlunos FROM cursos"
+        val db = this.banco.readableDatabase
+        val cursor = db.rawQuery(sql, null)
+
+        cursor.use {
+            if (it.moveToFirst()) {
+                val totalAlunosIndex = it.getColumnIndex("totalAlunos")
+                val totalAlunos = "${it.getString(totalAlunosIndex)} alunos"
+                return totalAlunos
+            }
+        }
+        return null
+    }
+
+
 
 
 

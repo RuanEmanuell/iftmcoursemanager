@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".AddScreenActivity" />
         <activity android:name=".AllCoursesActivity" />
+        <activity android:name=".StatsScreenActivity" />
     </application>
 
 </manifest>
