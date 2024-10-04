@@ -16,7 +16,11 @@ class Curso (codigo: Int, nome: String, numeroDeAlunos: Int, notaMec: Float, are
     }
 
     override fun toString(): String {
-        return "Codigo: $codigo | Nome: $nome | Numero de alunos : $numeroDeAlunos | " +
-                "Nota Mec : $notaMec | Área : $area"
+        return "\nCodigo: $codigo \n" +
+                "Nome: $nome \n" +
+                "Numero de alunos : $numeroDeAlunos \n" +
+                "Nota Mec : $notaMec \n" +
+                "Área : $area \n"
+
     }
 }

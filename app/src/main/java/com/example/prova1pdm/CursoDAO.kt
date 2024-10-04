@@ -31,6 +31,32 @@ class CursoDAO (banco: Banco) {
 
     }
 
+    fun searchCurso(codigoCurso: Int): Curso? {
+        val sql = "SELECT * FROM cursos WHERE codigo = ?"
+        val db = this.banco.readableDatabase
+        val cursor = db.rawQuery(sql, arrayOf(codigoCurso.toString()))
+
+        cursor.use {
+            if (it.moveToFirst()) {
+                val codigoIndex = it.getColumnIndex("codigo")
+                val nomeIndex = it.getColumnIndex("nome")
+                val numeroDeAlunosIndex = it.getColumnIndex("numero_de_alunos")
+                val notaMecIndex = it.getColumnIndex("nota_mec")
+                val areaIndex = it.getColumnIndex("area")
+
+                val codigo = it.getInt(codigoIndex)
+                val nome = it.getString(nomeIndex)
+                val numeroDeAlunos = it.getInt(numeroDeAlunosIndex)
+                val notaMec = it.getFloat(notaMecIndex)
+                val area = it.getString(areaIndex)
+
+                return Curso(codigo, nome, numeroDeAlunos, notaMec, area)
+            }
+        }
+        return null
+    }
+
+
     fun removeCurso(codigo: Int){
         val sql = "DELETE FROM cursos where codigo = $codigo"
         val db = this.banco.writableDatabase

@@ -74,14 +74,14 @@
         app:layout_constraintTop_toTopOf="@+id/viewButton" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton5"
+        android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton4"
+        app:layout_constraintTop_toBottomOf="@+id/editButton"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <TextView
@@ -92,8 +92,8 @@
         android:layout_marginTop="20dp"
         android:text="Remover curso"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButton5"
-        app:layout_constraintTop_toTopOf="@+id/floatingActionButton5" />
+        app:layout_constraintStart_toEndOf="@+id/deleteButton"
+        app:layout_constraintTop_toTopOf="@+id/deleteButton" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton6"
@@ -103,7 +103,7 @@
         android:layout_marginTop="16dp"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton5"
+        app:layout_constraintTop_toBottomOf="@+id/deleteButton"
         app:srcCompat="@android:drawable/star_big_off" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -185,7 +185,7 @@
         app:layout_constraintTop_toTopOf="@+id/floatingActionButton6" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton4"
+        android:id="@+id/editButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -203,7 +203,7 @@
         android:layout_marginTop="20dp"
         android:text="Editar curso"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButton4"
-        app:layout_constraintTop_toTopOf="@+id/floatingActionButton4" />
+        app:layout_constraintStart_toEndOf="@+id/editButton"
+        app:layout_constraintTop_toTopOf="@+id/editButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

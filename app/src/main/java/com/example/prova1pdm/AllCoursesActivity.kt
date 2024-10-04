@@ -30,10 +30,6 @@ class AllCoursesActivity : AppCompatActivity() {
         val listViewCursos = findViewById<ListView>(R.id.listView)
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listCursos)
         listViewCursos.adapter = adapter
-        listViewCursos.setOnItemClickListener { _, _, position, _ ->
-            val selectedCourse = listCursos[position]
-            Toast.makeText(this, "Curso selecionado: $selectedCourse", Toast.LENGTH_SHORT).show()
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

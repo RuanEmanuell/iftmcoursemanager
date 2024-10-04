@@ -18,15 +18,35 @@ class AddScreenActivity : AppCompatActivity() {
 
         val banco = Banco(this)
         val cursoDAO = CursoDAO(banco)
-        val listCursos = cursoDAO.getAllCursos()
 
+        var codigoCurso : Int? = null;
+
+        val bundle = intent.extras
+
+        if(bundle != null){
+            codigoCurso = bundle.getInt("codigo")
+        }
 
         val saveButton = findViewById<FloatingActionButton>(R.id.saveButton)
+
         val codigoInput = findViewById<EditText>(R.id.cursoInput)
         val nomeInput = findViewById<EditText>(R.id.cursoInput2)
         val numeroDeAlunosInput = findViewById<EditText>(R.id.cursoInput3)
         val notaMecInput = findViewById<EditText>(R.id.cursoInput4)
         val areaInput = findViewById<EditText>(R.id.cursoInput5)
+
+        if(codigoCurso != null){
+            val cursoEncontrado : Curso? = cursoDAO.searchCurso(codigoCurso!!)
+
+            if(cursoEncontrado != null){
+                codigoInput.setText(cursoEncontrado.codigo.toString())
+                nomeInput.setText(cursoEncontrado.nome)
+                numeroDeAlunosInput.setText(cursoEncontrado.numeroDeAlunos.toString())
+                notaMecInput.setText(cursoEncontrado.notaMec.toString())
+                areaInput.setText(cursoEncontrado.area)
+
+            }
+        }
 
         saveButton.setOnClickListener{
             val codigo = codigoInput.text.toString()
