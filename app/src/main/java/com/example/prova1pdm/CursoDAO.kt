@@ -65,6 +65,17 @@ class CursoDAO (banco: Banco) {
         return listCursos
     }
 
+    fun getAllCursosString() : List<String> {
+        val listStringCursos = mutableListOf<String>()
+        val listCursos = getAllCursos()
+
+        for (curso in listCursos){
+            listStringCursos.add(curso.toString())
+        }
+
+        return listStringCursos
+    }
+
 
 
 

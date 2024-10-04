@@ -14,4 +14,9 @@ class Curso (codigo: Int, nome: String, numeroDeAlunos: Int, notaMec: Float, are
         this.notaMec = notaMec
         this.area = area
     }
+
+    override fun toString(): String {
+        return "Codigo: $codigo | Nome: $nome | Numero de alunos : $numeroDeAlunos | " +
+                "Nota Mec : $notaMec | Área : $area"
+    }
 }

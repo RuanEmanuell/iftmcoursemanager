@@ -1,11 +1,10 @@
 package com.example.prova1pdm
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,13 +12,22 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val banco = Banco(this)
-        val cursoDAO = CursoDAO(banco)
-        cursoDAO.insertCurso(Curso(1, "ADS", 30, 4.5F, "T.I"))
-        val listCursos = cursoDAO.getAllCursos()
+        val addButton = findViewById<FloatingActionButton>(R.id.addButton)
+        val searchButton = findViewById<FloatingActionButton>(R.id.viewButton)
+        val viewButton = findViewById<FloatingActionButton>(R.id.viewButton)
 
-        for (curso in listCursos){
-            Toast.makeText(this, curso.nome, Toast.LENGTH_SHORT).show()
+        addButton.setOnClickListener{
+            val intent = Intent(this, AddScreenActivity::class.java)
+            startActivity(intent)
+        }
+
+        searchButton.setOnClickListener{
+
+        }
+
+        viewButton.setOnClickListener{
+            val intent = Intent(this, AllCoursesActivity::class.java)
+            startActivity(intent)
         }
 
     }
