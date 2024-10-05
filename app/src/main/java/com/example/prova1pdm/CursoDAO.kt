@@ -56,7 +56,6 @@ class CursoDAO (banco: Banco) {
         return null
     }
 
-
     fun removeCurso(codigo: Int){
         val sql = "DELETE FROM cursos where codigo = $codigo"
         val db = this.banco.writableDatabase

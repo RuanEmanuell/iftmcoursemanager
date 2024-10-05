@@ -20,6 +20,7 @@ class AddScreenActivity : AppCompatActivity() {
         val cursoDAO = CursoDAO(banco)
 
         var codigoCurso : Int? = null;
+        var isEditingMode = false;
 
         val bundle = intent.extras
 
@@ -45,19 +46,57 @@ class AddScreenActivity : AppCompatActivity() {
                 notaMecInput.setText(cursoEncontrado.notaMec.toString())
                 areaInput.setText(cursoEncontrado.area)
 
+                isEditingMode = true;
             }
         }
 
-        saveButton.setOnClickListener{
-            val codigo = codigoInput.text.toString()
-            val nome = nomeInput.text.toString()
-            val numeroDeAlunos = numeroDeAlunosInput.text.toString()
-            val notaMec = notaMecInput.text.toString()
-            val area = areaInput.text.toString()
-            cursoDAO.insertCurso(Curso(codigo.toInt(), nome, numeroDeAlunos.toInt(), notaMec.toFloat(), area))
-            Toast.makeText(this, "Curso salvo", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        saveButton.setOnClickListener {
+            if(codigoInput.text.isNotBlank() &&
+                nomeInput.text.isNotBlank()  &&
+                areaInput.text.isNotBlank()  &&
+                notaMecInput.text.isNotBlank()  &&
+                numeroDeAlunosInput.text.isNotBlank()){
+                val codigo = codigoInput.text.toString()
+                val nome = nomeInput.text.toString()
+                val numeroDeAlunos = numeroDeAlunosInput.text.toString()
+                val notaMec = notaMecInput.text.toString()
+                val area = areaInput.text.toString()
+
+                if (isEditingMode) {
+                    cursoDAO.editCurso(
+                        Curso(
+                            codigo.toInt(),
+                            nome,
+                            numeroDeAlunos.toInt(),
+                            notaMec.toFloat(),
+                            area
+                        )
+                    )
+                    Toast.makeText(this, "Curso atualizado", Toast.LENGTH_SHORT).show()
+                } else {
+                    val cursoEncontrado: Curso? = cursoDAO.searchCurso(codigo.toInt())
+                    if (cursoEncontrado == null) {
+                        cursoDAO.insertCurso(
+                            Curso(
+                                codigo.toInt(),
+                                nome,
+                                numeroDeAlunos.toInt(),
+                                notaMec.toFloat(),
+                                area
+                            )
+                        )
+                        Toast.makeText(this, "Curso salvo", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Curso com código $codigo já existe!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+        }else {
+                Toast.makeText(this, "Insira todos os campos para salvar!", Toast.LENGTH_SHORT).show()
+            }
         }
+
     }
 }

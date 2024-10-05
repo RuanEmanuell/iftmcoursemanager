@@ -68,10 +68,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FileDataScreenActivity::class.java)
             startActivity(intent)
         }
-
-
-
-
     }
 
     private fun openEditDialog() {
