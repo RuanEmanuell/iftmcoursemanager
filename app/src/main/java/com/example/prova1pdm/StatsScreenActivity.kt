@@ -19,7 +19,7 @@ class StatsScreenActivity : AppCompatActivity() {
         val banco = Banco(this)
         val cursoDAO = CursoDAO(banco)
 
-        val cursoMaisAlunosText = findViewById<TextView>(R.id.dadosArquivoText)
+        val cursoMaisAlunosText = findViewById<TextView>(R.id.cursoMaisAlunosText)
         cursoMaisAlunosText.setText(cursoDAO.getCourseWithMoreStudents())
         val totalAlunosText = findViewById<TextView>(R.id.totalAlunosText)
         totalAlunosText.setText(cursoDAO.getTotalStudentsInUniversity())
