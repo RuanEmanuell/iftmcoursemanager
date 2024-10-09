@@ -6,15 +6,16 @@
 A program that manages an unit of the Federal Institute of Education, Science and Technology (IFTM).
 
 The program can:
-a) Insert courses.
-b) Show the courses.
-c) Update courses.
-d) Remove courses.
-e) Carry out searches through the course code.
-f) Show the course with the largest number of students.
-g) Show the total number of students at the University.
-h) Save all data to a file.
-i) Read the data that was saved in a file.
+
+- a) Insert courses.
+- b) Show the courses.
+- c) Update courses.
+- d) Remove courses.
+- e) Carry out searches through the course code.
+- f) Show the course with the largest number of students.
+- g) Show the total number of students at the University.
+- h) Save all data to a file.
+- i) Read the data that was saved in a file.
 
 It was made in Kotlin and uses SQLite to save the data locally.
     

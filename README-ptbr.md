@@ -6,15 +6,16 @@
 Um programa que gerencie uma unidade de um Instituto Federal de Educação Ciência e Tecnologia (IFTM).
 
 O programa pode:
-a) Inserir cursos.
-b) Mostrar os cursos.
-c) Atualizar cursos.
-d) Remover cursos.
-e) Realizar buscas através do código do cursos.
-f) Mostrar o curso com o maior número de alunos.
-g) Mostrar o número total de alunos na Universidade.
-h) Salvar todos os dados em arquivo (File).
-i) Ler os dados que foram salvos em arquivo (File).
+
+- a) Inserir cursos.
+- b) Mostrar os cursos.
+- c) Atualizar cursos.
+- d) Remover cursos.
+- e) Realizar buscas através do código do cursos.
+- f) Mostrar o curso com o maior número de alunos.
+- g) Mostrar o número total de alunos na Universidade.
+- h) Salvar todos os dados em arquivo (File).
+- i) Ler os dados que foram salvos em arquivo (File).
     
 ### Onde posso acessá-lo? 🖥
 Você precisa baixar os arquivos desse repositório.
