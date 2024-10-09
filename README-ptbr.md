@@ -1,6 +1,6 @@
 # Check the English version <a href="README.md">here</a>
 
-## VisAçougue
+## IFTMCourseManager
     
 ### O que é isso? 🤔
 Um programa que gerencie uma unidade de um Instituto Federal de Educação Ciência e Tecnologia (IFTM).
